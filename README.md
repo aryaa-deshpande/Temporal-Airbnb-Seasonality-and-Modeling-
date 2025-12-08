@@ -44,13 +44,24 @@ This repository contains my implementation of the EAS 510 extra-credit assignmen
 
 ## How to Run the Notebook
 
-### 1. Create environment
+### 1. Create environment (Python 3.10)
+
+This project was developed and tested with **Python 3.10**.  
+Please create your environment using Python 3.10 to avoid version issues.
+
+Example:
+
+```
+python3.10 -m venv .venv
+source .venv/bin/activate   
+```
 ```
 pip install -r requirements.txt
 ```
+
 ### 2. Download the data
 
-The notebook uses `InsideAirbnb` archived snapshots. You can download the same datasets from:
+The notebook uses InsideAirbnb archived snapshots. You can download the same datasets from:
 
 https://insideairbnb.com/get-the-data.html
 
@@ -66,39 +77,39 @@ Cities and dates used in the assignment:
 	•	Santa Cruz: 2025-03-28, 2025-12-31
 	•	Washington DC: 2025-03-13, 2025-12-18
 
-The notebook expects this folder structure, and reconstructs the panel dataset automatically.
+The notebook expects this folder structure and reconstructs the panel dataset automatically.
 
 ---
 
 ## What the Notebook Does
+
 	1.	Builds a cleaned night-level panel dataset
-        •	Merges listings + calendar
-        •	Cleans price, parses date, constructs is_booked
-        •	Adds time-based features such as month, day-of-week,            week-of-year, etc.
+                •	Merges listings + calendar
+                •	Cleans price, parses date, constructs is_booked
+                •	Adds time-based features such as month, day-of-week, week-of-year, etc.
 	2.	Creates seasonality plots for each city/snapshot
-        •	Average price by month
-        •	Booking probability by month
-        •	Weekend vs weekday comparisons
-        •	Price by month × room type
-        •	All plots are saved to images/seasonality/
+                •	Average price by month
+                •	Booking probability by month
+                •	Weekend vs weekday comparisons
+                •	Price by month × room type
+                •	All plots are saved to images/seasonality/
 	3.	Performs temporal modeling
-        •	Train: early months
-        •	Validation: middle months
-        •	Test: unseen later months
-        •	XGBoost (regression & classification)
-        •	Neural networks with TensorBoard logging
+                •	Train: early months
+                •	Validation: middle months
+                •	Test: unseen later months
+                •	XGBoost (regression & classification)
+                •	Neural networks with TensorBoard logging
 	4.	Compares model behavior
-        •	Feature importances
-        •	Learning curves (from TensorBoard)
-        •	Evaluation on unseen months
-        •	Business insights and interpretation
+                •	Feature importances
+                •	Learning curves (from TensorBoard)
+                •	Evaluation on unseen months
+                •	Business insights and interpretation
 
 All final discussion and analysis appear at the end of the notebook.
 
 ---
 
-## Notes
+## Notes:
 
-	•	Raw InsideAirbnb data is not included due to file size; follow the structure above to place your copies locally.
-	•	The project is fully reproducible once the raw data is added.
-
+	•	Raw InsideAirbnb data is not included; follow the structure above to place your copies locally.
+	•	The project is fully reproducible once the raw data is added and a Python 3.10 environment is set up.
